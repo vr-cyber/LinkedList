@@ -1,9 +1,8 @@
-#include<iostream>
+
 #include<stdio.h>
-#include<string.h>
-#include <bits/stdc++.h>
+
 #include<stdlib.h>
-using namespace std;
+
 
 //creating three  nodes
 //method-1

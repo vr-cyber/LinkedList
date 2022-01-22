@@ -1,17 +1,19 @@
-#include<iostream>
-#include<stdio.h>
-#include<string.h>
-#include <bits/stdc++.h>
-#include<stdlib.h>
-using namespace std;
 
-void print_data(struct node *);
-//printing data
+#include<stdio.h>
+
+#include<stdlib.h>
+
+
+//inserting node at certain position
+
+void add_at_pos(struct node *,int ,int );
 struct node 
 {
 	int data ;
 	struct node *link;
 };
+
+
 
 int main()
 {    
@@ -41,31 +43,38 @@ int main()
 
     current->link=current2;
 
-    printf("%d\n",current2->data);
+    printf("%d\n\n",current2->data);
 
 
 
-   print_data(head);
-	
+   int data=70,position=2;
+   add_at_pos(head,data,position);
+   struct node *ptr=head;
 
-    
-     	return 0;
-}
-
-void print_data(struct node *head)
+while(ptr!=NULL)
 {
-	
-	if(head==NULL)
-		printf("no data");
-	struct node *ptr = NULL;
-	ptr=head;
-	while(ptr!=NULL)
-	{
-		printf("%d\n",ptr->data);
-		ptr=ptr->link;
-	}
-	
-	
+   printf("%d  ",ptr->data);
+   ptr=ptr->link;
+   
+     	
+}
+return 0;
 }
 
+void add_at_pos(struct node *head,int data,int pos)
+{
+	struct node *ptr=head;
+	struct node *ptr2= NULL;
+	ptr2=(struct node *)malloc(sizeof(struct node));
+	ptr2->data=data;
+	ptr2->link=NULL;
+	pos--;
+	while(pos!=1)
+	{
+		ptr=ptr->link;
+		pos--;
 
+	}
+	ptr2->link=ptr->link;
+	ptr->link=ptr2;
+}

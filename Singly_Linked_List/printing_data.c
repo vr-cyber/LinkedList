@@ -1,14 +1,11 @@
-#include<iostream>
-#include<stdio.h>
-#include<string.h>
-#include <bits/stdc++.h>
-#include<stdlib.h>
-using namespace std;
 
-void count_of_nodes(struct node *);
-//creating three  nodes
-//method-2
-//counting no of nodes
+#include<stdio.h>
+
+#include<stdlib.h>
+
+
+void print_data(struct node *);
+//printing data
 struct node 
 {
 	int data ;
@@ -35,38 +32,37 @@ int main()
 
     printf("%d\n",current->data);
 
-   
-	//current=malloc(sizeof(struct node));
+   struct node *current2 = NULL;
+	current2=(struct node*)malloc(sizeof(struct node));
 	
-    current->data =55;
-    current->link =NULL;
+    current2->data =55;
+    current2->link =NULL;
 
-    head->link->link=NULL;
+    current->link=current2;
 
-    printf("%d\n",current->data);
+    printf("%d\n",current2->data);
 
 
 
-   count_of_nodes(head);
+   print_data(head);
 	
 
     
      	return 0;
 }
 
-void count_of_nodes(struct node *head)
+void print_data(struct node *head)
 {
-	int count=1;
+	
 	if(head==NULL)
-		printf("empty");
+		printf("no data");
 	struct node *ptr = NULL;
 	ptr=head;
 	while(ptr!=NULL)
-	{   count++;
-		
+	{
+		printf("%d\n",ptr->data);
 		ptr=ptr->link;
 	}
-	printf("%d",count);
 	
 	
 }
